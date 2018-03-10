@@ -1,0 +1,2 @@
+class FeatureFlagsController < ApplicationController
+end
