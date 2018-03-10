@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310030532) do
+ActiveRecord::Schema.define(version: 20180310041707) do
 
   create_table "feature_flags", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "value", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_feature_flags_on_name", unique: true
   end
 
 end

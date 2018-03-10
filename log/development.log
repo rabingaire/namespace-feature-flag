@@ -1005,3 +1005,296 @@ Processing by FeatureFlagsController#show as HTML
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.8ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUniqueToNameFeatureFlag (20180310041707)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_feature_flags_on_name" ON "feature_flags" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180310041707"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feature_flags_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feature_flags_on_name' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:04:00 +0545
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/feature_flags/4" for 127.0.0.1 at 2018-03-10 10:04:03 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m4F/PQvYfwG1lPGHKVuxvYK7QS687vjn3ACx9q09e/s7sSwb1ICRFpB9cdvcvHvyUninWocU9eAzjbfMnQODrQ==", "id"=>"4"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "feature_flags" WHERE "feature_flags"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:04:03 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 10:04:04 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 53ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:04:06 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RGziHj41WmLlQpdU5mYLJ/sn/JjzVFZjYdSqbWCjrLw2mbc0wrbpfeLHFfmTFQ0vTHqmVxdVJ4z79+F5kvkDGw==", "feature_flag"=>{"name"=>"a", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "a"], ["created_at", "2018-03-10 04:19:06.880142"], ["updated_at", "2018-03-10 04:19:06.880142"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:04:06 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 10:04:09 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 48ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:04:11 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CC5whz7P1jYk2agf4R4hKMCd9nP979JtsWai5r9o62u1ezo4HiMR98W5A0K936MFF8tFiv2zqYs5tGfaKcMCg==", "feature_flag"=>{"name"=>"a", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "a"], ["created_at", "2018-03-10 04:19:11.316798"], ["updated_at", "2018-03-10 04:19:11.316798"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: feature_flags.name: INSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)):
+  
+app/controllers/feature_flags_controller.rb:11:in `create'
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:04:27 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XINxFgFaWpRnL9VnDyTA6qx/L6Mps53z+SGTpVOQ3R38syIw3gK0g0LGVTv6wwqlfLzJ1xJJkPQWrJWfY64lSw==", "feature_flag"=>{"name"=>"aa", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "aa"], ["created_at", "2018-03-10 04:19:27.620175"], ["updated_at", "2018-03-10 04:19:27.620175"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:04:27 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/feature_flags/5" for 127.0.0.1 at 2018-03-10 10:04:58 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"b06vqQK09AZXF8+9wAARigNIaoZrHUV+96MbZq0feM3PfvyP3ewaEXL+T+E159vF04uM8lDnSHkYLh1cnSGAmw==", "id"=>"5"}
+  [1m[36mFeatureFlag Load (0.4ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "feature_flags" WHERE "feature_flags"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:04:58 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/feature_flags/6" for 127.0.0.1 at 2018-03-10 10:04:59 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"p4zTzEjB5xkt/TWWUe0Ap8fcIm4jNn9lwgJokNeTQ4oHvIDql5kJDggUtcqkCsroFx/EGhjMcmItj26q56273A==", "id"=>"6"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "feature_flags" WHERE "feature_flags"."id" = ?[0m  [["id", 6]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:04:59 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 10:05:00 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 45ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:05:01 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VlrbVtquOXJgpi4qzQYmwwzvL+wRiRZafdbdzqLk7Vckr458Ji2KbWcjrIe4dSDLu7J1I/WIZ7Xn9ZbaUL5C8A==", "feature_flag"=>{"name"=>"a", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "a"], ["created_at", "2018-03-10 04:20:01.858923"], ["updated_at", "2018-03-10 04:20:01.858923"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:05:01 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 10:05:03 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 43ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:05:05 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IZJVgoSCb5+gBGidU7280EII0QQNGEVTWfYbaUmUhwpTZwCoeAHcgKeB6jAmzrrY9VWLy+kZNLzD1VB9u84orQ==", "feature_flag"=>{"name"=>"a", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "a"], ["created_at", "2018-03-10 04:20:05.431389"], ["updated_at", "2018-03-10 04:20:05.431389"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: feature_flags.name: INSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)):
+  
+app/controllers/feature_flags_controller.rb:11:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "feature_flags"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "feature_flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "value" boolean DEFAULT 't', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_feature_flags_on_name" ON "feature_flags" ("name")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180310041707)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180310030532);
+
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-10 04:20:54.187754"], ["updated_at", "2018-03-10 04:20:54.187754"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "feature_flags"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "feature_flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "value" boolean DEFAULT 't', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_feature_flags_on_name" ON "feature_flags" ("name")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180310041707)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180310030532);
+
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-10 04:20:54.204103"], ["updated_at", "2018-03-10 04:20:54.204103"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-03-10 04:20:54.207764"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:06:21 +0545
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 189ms (Views: 178.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 10:06:23 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (70.9ms)
+Completed 200 OK in 112ms (Views: 99.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:06:25 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nEvwirLcrQCcSB0r8Kv3JycHapuz7LpjuG2XLMlQDazuvqWgTl8eH5vNn4aF2PEvkFowVFfty4wiTtw4OwqiCw==", "feature_flag"=>{"name"=>"a", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "a"], ["created_at", "2018-03-10 04:21:25.953132"], ["updated_at", "2018-03-10 04:21:25.953132"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 10:06:25 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.3ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 10:06:27 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 51ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 10:06:29 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ri6dGKROhfc/U9VpYCeDZtEdPNz5dgV+qUUvii9XCqETe9enhKJCNt4zfjQ85gFLBkuPJfkqfpghl+q2ufzjQ==", "feature_flag"=>{"name"=>"a", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "a"], ["created_at", "2018-03-10 04:21:29.812868"], ["updated_at", "2018-03-10 04:21:29.812868"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: feature_flags.name: INSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)):
+  
+app/controllers/feature_flags_controller.rb:11:in `create'
