@@ -1,5 +1,9 @@
 <h1>Feature Flags</h1>
+<%= link_to 'Add New Feature Flag', new_feature_flag_path %>
+<br/>
 <% @flags.each do |flag| %>
   <%= flag.name %>
   <%= flag.value %>
+  <%= link_to 'Edit', edit_feature_flag_path(flag.id) %>
+  <%= link_to 'Delete', feature_flag_path(flag.id), method: :delete %>
 <% end %>

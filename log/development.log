@@ -649,3 +649,175 @@ Processing by FeatureFlagsController#index as HTML
 Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:29:37 +0545
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (121.7ms)
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_feature_flag' for #<#<Class:0x00007fb6e4f313d8>:0x00007fb6e4f283c8>
+Did you mean?  edit_feature_flag_url
+               edit_feature_flag_path):
+    2: <% @flags.each do |flag| %>
+    3:   <%= flag.name %>
+    4:   <%= flag.value %>
+    5:   <%= link_to 'Edit', edit_feature_flag(flag.id) %>
+    6:   <%= link_to 'Delete', feature_flag(flag.id), method: :delete %>
+    7: <% end %>
+  
+app/views/feature_flags/index.html.erb:5:in `block in _app_views_feature_flags_index_html_erb___2949475710063694359_70211750957320'
+app/views/feature_flags/index.html.erb:2:in `_app_views_feature_flags_index_html_erb___2949475710063694359_70211750957320'
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:32:01 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (93.9ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_feature_flag' for #<#<Class:0x00007fb6e4f313d8>:0x00007fb6e4fc0d80>
+Did you mean?  edit_feature_flag_url
+               edit_feature_flag_path):
+    2: <% @flags.each do |flag| %>
+    3:   <%= flag.name %>
+    4:   <%= flag.value %>
+    5:   <%= link_to 'Edit', edit_feature_flag(flag.id) %>
+    6:   <%= link_to 'Delete', feature_flag(flag.id), method: :delete %>
+    7: <% end %>
+  
+app/views/feature_flags/index.html.erb:5:in `block in _app_views_feature_flags_index_html_erb___2949475710063694359_70211751251060'
+app/views/feature_flags/index.html.erb:2:in `_app_views_feature_flags_index_html_erb___2949475710063694359_70211751251060'
+Started PUT "/__web_console/repl_sessions/ff9a9195bdf971923334ad09d573788f" for 127.0.0.1 at 2018-03-10 09:32:13 +0545
+Started PUT "/__web_console/repl_sessions/ff9a9195bdf971923334ad09d573788f" for 127.0.0.1 at 2018-03-10 09:32:14 +0545
+Started PUT "/__web_console/repl_sessions/ff9a9195bdf971923334ad09d573788f" for 127.0.0.1 at 2018-03-10 09:32:18 +0545
+Started PUT "/__web_console/repl_sessions/ff9a9195bdf971923334ad09d573788f" for 127.0.0.1 at 2018-03-10 09:32:28 +0545
+Started PUT "/__web_console/repl_sessions/ff9a9195bdf971923334ad09d573788f" for 127.0.0.1 at 2018-03-10 09:32:29 +0545
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:32:42 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 168ms (Views: 166.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/1/edit" for 127.0.0.1 at 2018-03-10 09:32:44 +0545
+Processing by FeatureFlagsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeatureFlag Load (0.3ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering feature_flags/edit.html.erb within layouts/application
+  Rendered feature_flags/edit.html.erb within layouts/application (47.1ms)
+Completed 200 OK in 78ms (Views: 68.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/feature_flags/1" for 127.0.0.1 at 2018-03-10 09:32:46 +0545
+Processing by FeatureFlagsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X6/BQzhBJEm607d8FUoloCY9bP7fxD0exMvlROFU3vPf69A8SOvzcDpgVJzIeT7Y3wu2l01h/mM02ClTSle/Bg==", "feature_flag"=>{"name"=>"asmi", "value"=>"0"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:32:46 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/feature_flags/1" for 127.0.0.1 at 2018-03-10 09:32:47 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/1mlvBKK2aGvrJYF0L/tjZaI6yqEjg9wo5N6KbMec9RfafaazdI3topFFlklWCfCRksNXr90AndMHnwTgyCLgg==", "id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant FeatureFlagsController::Post):
+  
+app/controllers/feature_flags_controller.rb:34:in `destroy'
+Started DELETE "/feature_flags/1" for 127.0.0.1 at 2018-03-10 09:33:13 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/1mlvBKK2aGvrJYF0L/tjZaI6yqEjg9wo5N6KbMec9RfafaazdI3topFFlklWCfCRksNXr90AndMHnwTgyCLgg==", "id"=>"1"}
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "feature_flags" WHERE "feature_flags"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:33:13 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:34:03 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 09:34:04 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 54ms (Views: 47.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 09:34:07 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JWAucg41+A5l903PdkigMP0N5BVGc+cDGeE26pbb9CpXlXtY8rZLEWJyz2IDO6Y4SlC+2qJyluyDwn3+ZIFbjQ==", "feature_flag"=>{"name"=>"as", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "as"], ["created_at", "2018-03-10 03:49:07.618341"], ["updated_at", "2018-03-10 03:49:07.618341"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:34:07 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:34:23 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/feature_flags/2" for 127.0.0.1 at 2018-03-10 09:34:28 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pCwvV9mPYvxR+z7QkEz8rZtm5kzq3tTUjxy8ijeMgdgEHHxxBteM63QSvoxlqzbiS6UAONEk2dNgkbqwB7J5jg==", "id"=>"2"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "feature_flags" WHERE "feature_flags"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:34:28 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 25ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+

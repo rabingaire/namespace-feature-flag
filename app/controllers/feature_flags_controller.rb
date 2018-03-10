@@ -31,8 +31,8 @@ class FeatureFlagsController < ApplicationController
   end
 
   def destroy
-  	@post = Post.find(params[:id])
-  	@post.destroy
+  	@flag = FeatureFlag.find(params[:id])
+  	@flag.destroy
   	redirect_to root_path
 	end
 
