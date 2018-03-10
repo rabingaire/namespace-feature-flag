@@ -821,3 +821,187 @@ Processing by FeatureFlagsController#index as HTML
 Completed 200 OK in 25ms (Views: 17.2ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:35:22 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 09:36:04 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 61ms (Views: 54.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 09:36:12 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"czoL90mr3NgtqG28AhJIvY4ylByTaDacmlE7pmim9B4Bz17dtShvxyot7xF3YU61OW/O03dpR3MAcnCymvxbuQ==", "feature_flag"=>{"name"=>"asadsaf", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "asadsaf"], ["created_at", "2018-03-10 03:51:12.354396"], ["updated_at", "2018-03-10 03:51:12.354396"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:36:12 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/feature_flags/3" for 127.0.0.1 at 2018-03-10 09:36:15 +0545
+Processing by FeatureFlagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TCMMmptZdR1G1lCoYemC3GxFlyHouhRLyUW/uYQUHwDsE1+8RAGbCmM/0PSUDkiTvIZxVdNAGUwmyLmDtCrnVg==", "id"=>"3"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "feature_flags" WHERE "feature_flags"."id" = ?[0m  [["id", 3]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:36:15 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/1/edit" for 127.0.0.1 at 2018-03-10 09:40:24 +0545
+Processing by FeatureFlagsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find FeatureFlag with 'id'=1):
+  
+app/controllers/feature_flags_controller.rb:25:in `edit'
+Started GET "/feature_flags/1/" for 127.0.0.1 at 2018-03-10 09:40:28 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find FeatureFlag with 'id'=1):
+  
+app/controllers/feature_flags_controller.rb:20:in `show'
+Started GET "/feature_flags/new" for 127.0.0.1 at 2018-03-10 09:40:34 +0545
+Processing by FeatureFlagsController#new as HTML
+  Rendering feature_flags/new.html.erb within layouts/application
+  Rendered feature_flags/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 55ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feature_flags" for 127.0.0.1 at 2018-03-10 09:40:36 +0545
+Processing by FeatureFlagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wv3vdl59XEQ667Bj05I7A8CFDnWwXhDgAAGmYhD6B7UoCLpcov7vWz1uMs6m4T0Ld9hUulRfYQ+aIu124qCoEg==", "feature_flag"=>{"name"=>"aa", "value"=>"1"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "feature_flags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "aa"], ["created_at", "2018-03-10 03:55:36.461344"], ["updated_at", "2018-03-10 03:55:36.461344"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:40:36 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feature_flags/1/edit" for 127.0.0.1 at 2018-03-10 09:40:39 +0545
+Processing by FeatureFlagsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find FeatureFlag with 'id'=1):
+  
+app/controllers/feature_flags_controller.rb:25:in `edit'
+Started GET "/feature_flags/1" for 127.0.0.1 at 2018-03-10 09:40:42 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find FeatureFlag with 'id'=1):
+  
+app/controllers/feature_flags_controller.rb:20:in `show'
+Started GET "/feature_flags/4/edit" for 127.0.0.1 at 2018-03-10 09:40:51 +0545
+Processing by FeatureFlagsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFeatureFlag Load (0.3ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering feature_flags/edit.html.erb within layouts/application
+  Rendered feature_flags/edit.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 53ms (Views: 45.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/feature_flags/4" for 127.0.0.1 at 2018-03-10 09:40:59 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `json_response' for #<FeatureFlagsController:0x00007fb6ea1098b8>):
+  
+app/controllers/feature_flags_controller.rb:21:in `show'
+Started GET "/feature_flags/4" for 127.0.0.1 at 2018-03-10 09:46:02 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feature_flags/4" for 127.0.0.1 at 2018-03-10 09:46:51 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/feature_flags/4" for 127.0.0.1 at 2018-03-10 09:50:23 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/feature_flags/4" for 127.0.0.1 at 2018-03-10 09:50:38 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFeatureFlag Load (0.1ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-10 09:59:30 +0545
+Processing by FeatureFlagsController#index as HTML
+  Rendering feature_flags/index.html.erb within layouts/application
+  [1m[36mFeatureFlag Load (0.2ms)[0m  [1m[34mSELECT "feature_flags".* FROM "feature_flags" ORDER BY created_at DESC[0m
+  Rendered feature_flags/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feature_flags/aa" for 127.0.0.1 at 2018-03-10 09:59:41 +0545
+Processing by FeatureFlagsController#show as HTML
+  Parameters: {"name"=>"aa"}
+  [1m[36mFeatureFlag Load (0.8ms)[0m  [1m[34mSELECT  "feature_flags".* FROM "feature_flags" WHERE "feature_flags"."name" = ? LIMIT ?[0m  [["name", "aa"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+

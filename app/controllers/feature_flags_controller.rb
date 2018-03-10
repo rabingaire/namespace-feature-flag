@@ -16,6 +16,11 @@ class FeatureFlagsController < ApplicationController
     end
   end
 
+  def show
+    flag = FeatureFlag.find_by(name: params[:name])
+    render :json => { value: flag.value }
+  end
+
   def edit
     @flag = FeatureFlag.find(params[:id])
   end
